@@ -87,7 +87,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "jupyterlab": { 
+  "jupyterlab": {
     "extension": true,
     "outputDir": "webds_config_launcher/labextension",
     "sharedPackages": {
