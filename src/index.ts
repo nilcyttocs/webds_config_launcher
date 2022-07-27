@@ -10,7 +10,7 @@ import { ILauncher } from "@jupyterlab/launcher";
 
 import { Widget } from "@lumino/widgets";
 
-import { WebDSWidget } from "@webds/service";
+import { WebDSService, WebDSWidget } from "@webds/service";
 
 import { WebDSConfigLauncher } from "./launcher";
 
@@ -19,8 +19,8 @@ import { configurationIcon } from "./icons";
 namespace Attributes {
   export const command = "webds_config_launcher:open";
   export const id = "webds_config_launcher_widget";
-  export const label = "Manual Config";
-  export const caption = "Manual Config";
+  export const label = "Config Library";
+  export const caption = "Config Library";
   export const category = "Touch - Configuration";
   export const rank = 20;
 }
@@ -32,10 +32,12 @@ const plugin: JupyterFrontEndPlugin<void> = {
   id: "@webds/config_launcher:plugin",
   autoStart: true,
   requires: [ILauncher, ILayoutRestorer],
+  optional: [WebDSService],
   activate: (
     app: JupyterFrontEnd,
     launcher: ILauncher,
-    restorer: ILayoutRestorer
+    restorer: ILayoutRestorer,
+    service: WebDSService | null
   ) => {
     console.log("JupyterLab extension @webds/config_launcher is activated!");
 
@@ -55,7 +57,8 @@ const plugin: JupyterFrontEndPlugin<void> = {
           const configLauncher = new WebDSConfigLauncher(
             commands,
             launcher.items(),
-            callback
+            callback,
+            service
           );
           widget = new WebDSWidget({ content: configLauncher });
           widget.id = Attributes.id;
