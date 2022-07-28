@@ -11,141 +11,144 @@
 /* Private CSS variables */
 
 :root {
-    --jp-private-config-launcher-top-padding: 16px;
-    --jp-private-config-launcher-side-padding: 16px;
-    --jp-private-config-launcher-card-size: 130px;
-    --jp-private-config-launcher-card-label-height: 38px;
-    --jp-private-config-launcher-card-icon-height: 68px;
-    --jp-private-config-launcher-large-icon-size: 52px;
-    --jp-private-config-launcher-small-icon-size: 32px;
-  }
+  --jp-private-config-launcher-top-padding: 16px;
+  --jp-private-config-launcher-side-padding: 16px;
+  --jp-private-config-launcher-card-size: 130px;
+  --jp-private-config-launcher-card-label-height: 38px;
+  --jp-private-config-launcher-card-icon-height: 68px;
+  --jp-private-config-launcher-large-icon-size: 52px;
+  --jp-private-config-launcher-small-icon-size: 32px;
+}
 
-  /* Launcher */
+/* Launcher */
 
-  .jp-webdsConfigLauncher {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    background: var(--jp-layout-color0);
-    box-sizing: border-box;
-    min-width: 120px;
-    min-height: 120px;
-    /* This is needed so that all font sizing of children done in ems is
-     * relative to this base size */
-    font-size: var(--jp-ui-font-size1);
-  }
+.jp-webdsConfigLauncher {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  background: var(--jp-layout-color0);
+  box-sizing: border-box;
+  min-width: 120px;
+  min-height: 120px;
+  /* This is needed so that all font sizing of children done in ems is
+   * relative to this base size */
+  font-size: var(--jp-ui-font-size1);
+}
 
-  .jp-webdsConfigLauncher-body {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    overflow: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+.jp-webdsConfigLauncher-body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
-  .jp-webdsConfigLauncher-content {
-    height: 100%;
-    padding-top: var(--jp-private-config-launcher-top-padding);
-    padding-left: var(--jp-private-config-launcher-side-padding);
-    padding-right: var(--jp-private-config-launcher-side-padding);
-    box-sizing: border-box;
-  }
+.jp-webdsConfigLauncher-content {
+  height: 100%;
+  padding-top: var(--jp-private-config-launcher-top-padding);
+  padding-left: var(--jp-private-config-launcher-side-padding);
+  padding-right: var(--jp-private-config-launcher-side-padding);
+  box-sizing: border-box;
+}
 
-  .jp-webdsConfigLauncher-content-main {
-    height: 100%;
-  }
+.jp-webdsConfigLauncher-content-main {
+  height: 100%;
+}
 
-  /* Launcher section */
+/* Launcher section */
 
-  .jp-webdsConfigLauncher-section {
-    width: 100%;
-    box-sizing: border-box;
-    padding-bottom: 12px;
-  }
+.jp-webdsConfigLauncher-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding-bottom: 12px;
+}
 
-  .jp-webdsConfigLauncher-sectionHeader {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box;
-    /* This is custom tuned to get the section header to align with the cards */
-    margin-left: 5px;
-    border-bottom: 1px solid var(--jp-border-color2);
-    padding-bottom: 0px;
-    margin-bottom: 8px;
-  }
+.jp-webdsConfigLauncher-sectionHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  /* This is custom tuned to get the section header to align with the cards */
+  margin-left: 5px;
+  border-bottom: 1px solid var(--jp-border-color2);
+  padding-bottom: 0px;
+  margin-bottom: 8px;
+}
 
-  .jp-webdsConfigLauncher-sectionHeader .jp-webdsConfigLauncher-sectionIcon {
-    box-sizing: border-box;
-    margin-right: 12px;
-    height: var(--jp-private-config-launcher-small-icon-size);
-    width: var(--jp-private-config-launcher-small-icon-size);
-    background-size: var(--jp-private-config-launcher-small-icon-size)
-      var(--jp-private-config-launcher-small-icon-size);
-  }
+.jp-webdsConfigLauncher-sectionHeader .jp-webdsConfigLauncher-sectionIcon {
+  box-sizing: border-box;
+  margin-right: 12px;
+  height: var(--jp-private-config-launcher-small-icon-size);
+  width: var(--jp-private-config-launcher-small-icon-size);
+  background-size: var(--jp-private-config-launcher-small-icon-size)
+    var(--jp-private-config-launcher-small-icon-size);
+}
 
-  .jp-webdsConfigLauncher-sectionTitle {
-    font-size: var(--jp-ui-font-size2);
-    font-weight: normal;
-    color: var(--jp-ui-font-color1);
-    box-sizing: border-box;
-  }
+.jp-webdsConfigLauncher-sectionTitle {
+  font-size: var(--jp-ui-font-size2);
+  font-weight: normal;
+  color: var(--jp-ui-font-color1);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
 
-  /* Launcher cards */
+/* Launcher cards */
 
-  .jp-webdsConfigLauncher-cardContainer {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+.jp-webdsConfigLauncher-cardContainer {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
-  .jp-webdsConfigLauncher-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    cursor: pointer;
-    width: var(--jp-private-config-launcher-card-size);
-    height: var(--jp-private-config-launcher-card-size);
-    margin: 8px;
-    padding: 0px;
-    border: 1px solid var(--jp-border-color2);
-    background: var(--jp-layout-color0);
-    box-shadow: var(--jp-elevation-z2);
-    transition: 0.2s box-shadow;
-    border-radius: var(--jp-border-radius);
-  }
+.jp-webdsConfigLauncher-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  min-width: var(--jp-private-config-launcher-card-size);
+  max-width: var(--jp-private-config-launcher-card-size);
+  min-height: var(--jp-private-config-launcher-card-size);
+  max-height: var(--jp-private-config-launcher-card-size);
+  margin: 8px;
+  padding: 0px;
+  border: 1px solid var(--jp-border-color2);
+  background: var(--jp-layout-color0);
+  box-shadow: var(--jp-elevation-z2);
+  transition: 0.2s box-shadow;
+  border-radius: var(--jp-border-radius);
+}
 
-  .jp-webdsConfigLauncher-item:hover {
-    box-shadow: var(--jp-elevation-z6);
-    background: var(--jp-layout-color1);
-  }
+.jp-webdsConfigLauncher-item:hover {
+  box-shadow: var(--jp-elevation-z6);
+  background: var(--jp-layout-color1);
+}
 
-  .jp-webdsConfigLauncherCard-icon {
-    width: 100%;
-    height: var(--jp-private-config-launcher-card-icon-height);
-    box-sizing: border-box;
-    margin: 12px 0px 0px 0px;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.jp-webdsConfigLauncherCard-icon {
+  width: 100%;
+  height: var(--jp-private-config-launcher-card-icon-height);
+  box-sizing: border-box;
+  margin: 12px 0px 0px 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .jp-webdsConfigLauncher-label {
-    width: 100%;
-    height: var(--jp-private-config-launcher-card-label-height);
-    padding: 0 4px 4px 4px;
-    box-sizing: border-box;
-    word-break: break-word;
-    text-align: center;
-    color: var(--jp-ui-font-color1);
-    line-height: 14px;
-    font-size: 12px;
-    overflow: hidden;
-    user-select: none;
-  }
+.jp-webdsConfigLauncher-label {
+  width: 100%;
+  height: var(--jp-private-config-launcher-card-label-height);
+  padding: 0 4px 4px 4px;
+  box-sizing: border-box;
+  word-break: break-word;
+  text-align: center;
+  color: var(--jp-ui-font-color1);
+  line-height: 14px;
+  font-size: 12px;
+  overflow: hidden;
+  user-select: none;
+}

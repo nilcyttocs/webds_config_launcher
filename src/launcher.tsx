@@ -80,7 +80,7 @@ export class WebDSConfigLauncher extends VDomRenderer {
       >
         <div className="jp-webdsConfigLauncher-sectionHeader">
           <h2 className="jp-webdsConfigLauncher-sectionTitle">
-            {"Touch - Config Library"}
+            {"Touch - Configuration Library"}
           </h2>
         </div>
         <div className="jp-webdsConfigLauncher-cardContainer">{cards}</div>

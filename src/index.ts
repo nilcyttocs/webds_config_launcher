@@ -19,8 +19,8 @@ import { configurationIcon } from "./icons";
 namespace Attributes {
   export const command = "webds_config_launcher:open";
   export const id = "webds_config_launcher_widget";
-  export const label = "Config Library";
-  export const caption = "Config Library";
+  export const label = "Free Form";
+  export const caption = "Free Form";
   export const category = "Touch - Configuration";
   export const rank = 20;
 }
