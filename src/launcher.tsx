@@ -1,22 +1,15 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { VDomRenderer } from "@jupyterlab/apputils";
+import { VDomRenderer } from '@jupyterlab/apputils';
+import { ILauncher } from '@jupyterlab/launcher';
+import { classes, LabIcon } from '@jupyterlab/ui-components';
+import { each, IIterator } from '@lumino/algorithm';
+import { CommandRegistry } from '@lumino/commands';
+import { AttachedProperty } from '@lumino/properties';
+import { Widget } from '@lumino/widgets';
+import { WebDSService } from '@webds/service';
 
-import { ILauncher } from "@jupyterlab/launcher";
-
-import { classes, LabIcon } from "@jupyterlab/ui-components";
-
-import { each, IIterator } from "@lumino/algorithm";
-
-import { CommandRegistry } from "@lumino/commands";
-
-import { AttachedProperty } from "@lumino/properties";
-
-import { Widget } from "@lumino/widgets";
-
-import { WebDSService } from "@webds/service";
-
-const LAUNCHER_CLASS = "jp-webdsConfigLauncher";
+const LAUNCHER_CLASS = 'jp-webdsConfigLauncher';
 
 export class WebDSConfigLauncher extends VDomRenderer {
   constructor(
@@ -55,8 +48,8 @@ export class WebDSConfigLauncher extends VDomRenderer {
 
   protected render(): React.ReactElement<any> | null {
     const configItems: any[] = [];
-    each(this._items, (item) => {
-      if (item.category == "Touch - Config Library") {
+    each(this._items, item => {
+      if (item.category == 'Touch - Config Library') {
         configItems.push(item);
       }
     });
@@ -69,18 +62,18 @@ export class WebDSConfigLauncher extends VDomRenderer {
 
     const cards: React.ReactElement<any>[] = [];
 
-    configItems.forEach((item) => {
+    configItems.forEach(item => {
       cards.push(Card(item, this, this._commands, this._callback));
     });
 
     const content: React.ReactElement<any> = (
       <div
         className="jp-webdsConfigLauncher-section"
-        key={"webds_config_launcher"}
+        key={'webds_config_launcher'}
       >
         <div className="jp-webdsConfigLauncher-sectionHeader">
           <h2 className="jp-webdsConfigLauncher-sectionTitle">
-            {"Touch - Configuration Library"}
+            {'Touch - Configuration Library'}
           </h2>
         </div>
         <div className="jp-webdsConfigLauncher-cardContainer">{cards}</div>
@@ -118,8 +111,8 @@ function Card(
   const icon = _icon === iconClass ? undefined : _icon;
 
   const id = `webds-launcher-card-${label
-    .replace(/ /g, "-")
-    .replace(/[()]/g, "")}`;
+    .replace(/ /g, '-')
+    .replace(/[()]/g, '')}`;
 
   const onClickFactory = (
     item: ILauncher.IItemOptions
@@ -132,14 +125,14 @@ function Card(
       launcher.pending = true;
       void commands
         .execute(item.command, { ...item.args })
-        .then((value) => {
+        .then(value => {
           launcher.pending = false;
           if (value instanceof Widget) {
             launcherCallback(value);
             launcher.dispose();
           }
         })
-        .catch((reason) => {
+        .catch(reason => {
           launcher.pending = false;
           console.error(`Failed to launch launcher item\n${reason}`);
         });
@@ -161,7 +154,7 @@ function Card(
       <div className="jp-webdsConfigLauncherCard-icon">
         <LabIcon.resolveReact
           icon={icon}
-          iconClass={classes(iconClass, "jp-Icon-cover")}
+          iconClass={classes(iconClass, 'jp-Icon-cover')}
           stylesheet="launcherCard"
         />
       </div>
@@ -179,7 +172,7 @@ namespace Private {
     ILauncher.IItemOptions,
     number
   >({
-    name: "key",
+    name: 'key',
     create: (): number => id++
   });
 
