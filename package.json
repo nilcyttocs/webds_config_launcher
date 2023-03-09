@@ -1,6 +1,6 @@
 {
   "name": "@webds/config_launcher",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "webds_config_launcher",
   "keywords": [
     "jupyter",
