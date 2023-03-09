@@ -49,7 +49,7 @@ export class WebDSConfigLauncher extends VDomRenderer {
   protected render(): React.ReactElement<any> | null {
     const configItems: any[] = [];
     each(this._items, item => {
-      if (item.category == 'Touch - Config Library') {
+      if (item.category == 'Device - Config Library') {
         configItems.push(item);
       }
     });
