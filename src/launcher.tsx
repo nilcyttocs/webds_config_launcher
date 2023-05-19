@@ -19,7 +19,12 @@ export class WebDSConfigLauncher extends VDomRenderer {
     service: WebDSService | null
   ) {
     super();
-    this._items = items;
+    this._items = [];
+    each(items, (item: ILauncher.IItemOptions) => {
+      if (item.category == 'Device - Config Library') {
+        this._items.push(item);
+      }
+    });
     this._commands = commands;
     this._callback = callback;
     this._service = service;
@@ -47,14 +52,16 @@ export class WebDSConfigLauncher extends VDomRenderer {
   }
 
   protected render(): React.ReactElement<any> | null {
+    const widgetSet = this._service?.pinormos.getWidgetSet();
     const configItems: any[] = [];
-    each(this._items, item => {
-      if (item.category == 'Device - Config Library') {
+    this._items.forEach(item => {
+      const command = item.command;
+      const args = { ...item.args };
+      const label = this._commands.label(command, args);
+      if (widgetSet && widgetSet.has(label)) {
         configItems.push(item);
       }
     });
-
-    if (configItems.length == 0) return null;
 
     configItems.sort((a: any, b: any) => {
       return Private.sortCmp(a, b, this._commands);
@@ -89,7 +96,7 @@ export class WebDSConfigLauncher extends VDomRenderer {
     );
   }
 
-  private _items: IIterator<ILauncher.IItemOptions>;
+  private _items: any[];
   private _commands: CommandRegistry;
   private _callback: (widget: Widget) => void;
   private _pending = false;

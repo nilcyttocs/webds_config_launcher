@@ -60,6 +60,9 @@ const plugin: JupyterFrontEndPlugin<void> = {
           widget.title.label = Attributes.label;
           widget.title.icon = configurationIcon;
           widget.title.closable = true;
+          if (service) {
+            service.ui.setWebDSConfigLauncher(configLauncher);
+          }
         }
 
         if (!tracker.has(widget)) tracker.add(widget);
