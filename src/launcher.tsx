@@ -52,6 +52,18 @@ export class WebDSConfigLauncher extends VDomRenderer {
   }
 
   protected render(): React.ReactElement<any> | null {
+    const checkingConnection = this._service?.pinormos.isCheckingConnection();
+    const webdsConfigLauncherElement = document.getElementsByClassName(
+      LAUNCHER_CLASS
+    )[0];
+    if (webdsConfigLauncherElement && checkingConnection !== undefined) {
+      if (checkingConnection) {
+        webdsConfigLauncherElement.classList.add('backdrop');
+      } else {
+        webdsConfigLauncherElement.classList.remove('backdrop');
+      }
+    }
+
     const widgetSet = this._service?.pinormos.getWidgetSet();
     const configItems: any[] = [];
     this._items.forEach(item => {
@@ -88,11 +100,14 @@ export class WebDSConfigLauncher extends VDomRenderer {
     );
 
     return (
-      <div className="jp-webdsConfigLauncher-body">
-        <div className="jp-webdsConfigLauncher-content">
-          <div className="jp-webdsConfigLauncher-content-main">{content}</div>
+      <>
+        <div className="jp-webdsConfigLauncher-body">
+          <div className="jp-webdsConfigLauncher-content">
+            <div className="jp-webdsConfigLauncher-content-main">{content}</div>
+          </div>
         </div>
-      </div>
+        <div className="jp-webdsConfigLauncher-backdrop"></div>
+      </>
     );
   }
 
