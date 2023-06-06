@@ -57,10 +57,11 @@ export class WebDSConfigLauncher extends VDomRenderer {
       LAUNCHER_CLASS
     )[0];
     if (webdsConfigLauncherElement && checkingConnection !== undefined) {
+      const selector = 'backdrop-' + this._service!.ui.getJupyterThemeMode();
       if (checkingConnection) {
-        webdsConfigLauncherElement.classList.add('backdrop');
+        webdsConfigLauncherElement.classList.add(selector);
       } else {
-        webdsConfigLauncherElement.classList.remove('backdrop');
+        webdsConfigLauncherElement.classList.remove(selector);
       }
     }
 

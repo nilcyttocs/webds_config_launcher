@@ -36,13 +36,22 @@
   font-size: var(--jp-ui-font-size1);
 }
 
-.jp-webdsConfigLauncher.backdrop .jp-webdsConfigLauncher-backdrop {
+.jp-webdsConfigLauncher.backdrop-light .jp-webdsConfigLauncher-backdrop {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.jp-webdsConfigLauncher.backdrop-dark .jp-webdsConfigLauncher-backdrop {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .jp-webdsConfigLauncher-body {
